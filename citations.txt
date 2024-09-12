@@ -1,0 +1,143 @@
+//citations.txt
+/////////////////////////////////////////////////////////////////////////
+//
+// Student Info
+// ------------
+//
+// Name : Rachel Madeline Lagasse
+// St.# : 301395285
+// Email: rlagasse@sfu.ca
+//
+//
+// Statement of Originality
+// ------------------------
+//
+// All the code and comments below are my own original work. For any non-
+// original work, I have provided citations in the comments with enough
+// detail so that someone can see the exact source and extent of the
+// borrowed work.
+//
+// In addition, I have not shared this work with anyone else, and I have
+// not seen solutions from other students, tutors, websites, books,
+// etc.
+//
+/////////////////////////////////////////////////////////////////////////
+//
+
+Menu.h
+// check std declaration for std::string, variable not working: https://stackoverflow.com/questions/10219225 c-create-string-of-text-and-variables/10219267
+// used '\' after \n to preserve newline character in strings: https://stackoverflow.com/questions/45387284/how-to-put-a-new-line-inside-a-string-in-c
+// istream library, functionalities: http://www.cplusplus.com/reference/istream/istream/
+// getline() function, coding example of how to use to save string line: http://www.cplusplus.com/reference/istream/istream/getline/
+// , used line of code getline(cin, variable), familiarized with syntax and how to use with cout: https://www.cplusplus.com/reference/string/string/getline/
+// ^^ https://www.geeksforgeeks.org/getline-function-character-array/
+// tolower() syntax, idea to loop through each char calling tolower() to lowercase string: http://www.cplusplus.com/reference/locale/tolower/
+// removeif() function and line of code on how to use on a string., conditional, remove if valid, syntax: loop through entire array, checking if whitespace, removing if true: also string.erase() line, got from link, check for single char ' ' instead of isspace. https://stackoverflow.com/questions/83439/remove-spaces-from-stdstring-in-c
+//isspace() library, got header files to use to implement: http://www.cplusplus.com/reference/cctype/isspace/
+// use string1.compare(string2) to compare exact matches to strings. if true, returns 0 if false returns nonzero, use in if-statement: https://www.geeksforgeeks.org/comparing-two-strings-cpp/
+// input/output, using cin; cin >> age;: https://www.cplusplus.com/doc/tutorial/basic_io/
+// initializing class using classtype name(parameters); then calling name.methods() to access methods: https://stackoverflow.com/questions/682721/calling-member-functions-within-main-c
+// string pass by reference using string&, also sending class object to function using (classType object) as parameter: https://stackoverflow.com/questions/1896369/how-to-use-a-class-object-in-c-as-a-function-parameter
+// ^^ https://stackoverflow.com/questions/28390902/passing-strings-by-reference-and-value-in-c
+// check string is number using isdigit() looping through all characters, checking each index: https://stackoverflow.com/questions/4654636/how-to-determine-if-a-string-is-a-number-with-c
+// isdigit() library, syntax, use as if statement with example if (isdigit(str[0])){} (used this line of code) to check if isdigit is true for a char:  https://www.cplusplus.com/reference/cctype/isdigit/
+// toupper() libaray, convert a char looping through a string to uppercase: https://www.cplusplus.com/reference/cctype/toupper/
+// used code as inspo to check if index of string is first char or previous (i-1) index is whitespace, then capitalize using toupper() to capitalize each word: https://www.w3resource.com/cpp-exercises/string/cpp-string-exercise-3.php
+// inspo for converting string to type int if valid, sstream example: https://stackoverflow.com/questions/7663709/how-can-i-convert-a-stdstring-to-int
+// stoi() library, convert string to type int, example in practice: https://www.cplusplus.com/reference/string/stoi/
+// ^^ coding example implementing stoi(): https://www.educative.io/edpresso/how-to-convert-a-string-to-an-int-in-cpp
+// Discord: initialize database.h as variable in menu.h, within constructor for simplifying, avoid errors.
+// learned about rule of three for classes and memory allocation using new/delete: https://stackoverflow.com/questions/4172722/what-is-the-rule-of-three/4172724#4172724
+// getting error from destructor, research into how destructor works and type of error: https://stackoverflow.com/questions/62307149/valgrind-invalid-read-of-size-8-and-address-0x5b7e520-is-0-bytes-inside-a-block
+// creating dynamic arrays of type object, use as inspiration: https://stackoverflow.com/questions/20303820/creation-of-dynamic-array-of-dynamic-objects-in-c/20304088
+// ^^ try delete arraypointer instead of delete[] arraypointer: https://stackoverflow.com/questions/382822/destructor-c-type-argument-given-to-delete-expected-pointer
+// loop through size, deallocate recipe (with/without &) then deallocate array, tried it: https://stackoverflow.com/questions/2486034/delete-an-array-of-objects
+// switch statement syntax: https://www.w3schools.com/cpp/cpp_switch.asp
+// got tolower to lowercase characters in string: https://stackoverflow.com/questions/313970/how-to-convert-an-instance-of-stdstring-to-lower-case
+// inspo to store functions as special variable funtors, learned about: https://stackoverflow.com/questions/5582869/how-do-i-store-a-function-to-a-variable/51178918 
+//stoi, to_string() to convert to string, to_string() is more simplistic: https://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c
+// got line s1.find(s2) != std::string::npos for checking substring is in string, returns position of substring if valid, use as if statement to check if found (at least once, all that's needed): https://stackoverflow.com/questions/2340281/check-if-a-string-contains-a-string-in-c
+// atoi() library, synatx and how to use, less simplistic then stoi(): https://www.cplusplus.com/reference/cstdlib/atoi/
+// got code to check if cin is valid, got proper data type, used as int in my code, check with if (!cin) to check if cin value is invalid, invalid data type recieved: https://stackoverflow.com/questions/27003967/how-to-check-if-cin-is-int-in-c
+//raw array vs. regular array, variations learn about: https://stackoverflow.com/questions/27893628/does-a-raw-array-have-any-advantages-over-a-stdarray
+// inspo for converting string to char array to modify values, how to iterate; https://www.geeksforgeeks.org/convert-string-char-array-cpp/
+// initialize array of strings, use as platform for looking into arrays, creating and iterating (applied to dynamic arrays): https://www.geeksforgeeks.org/array-strings-c-3-different-ways-create/
+// converting string to char pointer, inspo, code sample, no looked at too closely: https://stackoverflow.com/questions/19739079/stdstring-aka-stdbasic-stringchar-to-char-in-assignment
+// initializing char pointer for strings, used in classes, how to compose constructor including a  char array: https://stackoverflow.com/questions/1524356/c-deprecated-conversion-from-string-constant-to-char
+// deleting constant char array, not possible: https://stackoverflow.com/questions/2001286/const-char-s-in-c
+// countin glines in text fie, got idea to use getline() to count each line: https://stackoverflow.com/questions/3482064/counting-the-number-of-lines-in-a-text-file
+// inspo for splitting strings by whitespaces: https://www.geeksforgeeks.org/split-a-sentence-into-words-in-cpp/
+// ^^ removing whitespaces from complete string, inspo for using sstream.: https://stackoverflow.com/questions/16029324/splitting-a-string-into-an-array-in-c-without-using-vector
+// got switch statement syntax: https://www.w3schools.com/cpp/cpp_switch.asp
+// cout to print variable integers, coding example use as-is, I used tostring() in some places.: http://www.cplusplus.com/forum/beginner/56103/
+//strings to ints, use stoi(): https://www.geeksforgeeks.org/converting-strings-numbers-cc/
+// youtube video on C++ database briefly looked at, didn't watch in depth: https://www.youtube.com/watch?v=Xk5W9cHdz40&ab_channel=AdamFowler
+// add int to array, basic syntax review, arr[i] = int, also inspo from vectors, .pushback(); https://stackoverflow.com/questions/755835/
+how-to-add-element-to-c-array
+
+//Menu.h list_recipe() function:
+// std::sort() library, got idea from class (allowed) to use, syntax reference and looking into to use: https://en.cppreference.com/w/cpp/algorithm/sort
+// more sort() library, also coding example of external function for boolean comparison and how to implement, what to send to external function: http://www.cplusplus.com/reference/algorithm/sort/
+// std::reverse() library, got idea from class (allowed) to use, syntax reference and looking into to use: https://en.cppreference.com/w/cpp/algorithm/reverse
+// std:: sort() library, syntax and how to use, experiemented with first/last/comp parameters: https://en.cppreference.com/w/cpp/algorithm/sort
+// std::greater() library, syntax and how it is used, how it can be used with sort(), learned about operator and writing bool comparison between specific values :https://en.cppreference.com/w/cpp/utility/functional/greater
+// sequenced_policy() library, learn about and how it can be appliciable, not acutlaly used: https://en.cppreference.com/w/cpp/algorithm/execution_policy_tag_t
+// std::reverse() libary, not used but referenced in class, looked into application. class idea to sort function then reverse function for reverse alphabetical: https://en.cppreference.com/w/cpp/algorithm/reverse
+// can use std::sort() to sort class objects, use <algorithm> as header file: https://www.quora.com/How-do-I-sort-an-array-of-objects-in-C++
+// idea to call sort() of array using pointer for first, last element. element 0 to element sizeofarray-1: https://stackoverflow.com/questions/9862410/c-how-to-use-stdsort-to-sort-a-array-of-objects-in-c
+// ^^ same thing, coding example that used idea from: arr, arr+sizeofarr for begin, end of array sort: https://www.cplusplus.com/articles/NhA0RXSz/
+// idea to set variable to size of array, already created in Database class: https://www.geeksforgeeks.org/sort-c-stl/
+// error checking with sort() and how to use: tested str.begin(), str.end() but used only for vectors; https://stackoverflow.com/questions/43443934/c-no-type-named-value-type-in-struct-stditerator-traitsint
+// write bool function to compare specific values to pass as comp parameter in sort(), idea to write external compare function to send two classes to (recipe): https://www.daniweb.com/programming/software-development/threads/256019/sorting-objects-by-class-member-variables
+// ^^ external comparison bool fucntion example, idea to send references of classes (constant) to function to access elements: https://stackoverflow.com/questions/29676147/sorting-a-vector-of-classes-based-on-a-variable-in-the-class?lq=1
+// ^^ https://stackoverflow.com/questions/34757448/sorting-a-vector-of-objects-alphabetically-in-c/34757492
+// write function internally of function, got syntax of internal function: sort(first, last,[](parameters){comparingcodereturnsbool}); followed structure from this coding example https://stackoverflow.com/questions/1380463/sorting-a-vector-of-custom-objects
+// case insensitivity research, idea to write function that lowercases string: https://stackoverflow.com/questions/11635/
+case-insensitive-string-comparison-in-c
+// vector example using std::sort(), follows same idea as before with strings too along with ints, same comparison should work, another coding example referenced: https://www.delftstack.com/howto/cpp/sort-strings-alphabetically-in-cpp/
+// comparing strings, idea to compare each character specifically. https://stackoverflow.com/questions/43268672/sorting-a-string-array-alphabetically-c
+// idea to check if cin input is empty by using s.empty() in if statement, ended up not working: https://stackoverflow.com/questions/4999650/c-how-do-i-check-if-the-cin-buffer-is-empty
+// got idea to set value initially then get cin input and check if input was original input, wasn't going to work if user put in same thing tho: https://stackoverflow.com/questions/10959699/how-to-detect-an-empty-int-input/10959740
+// idea to check if input is completely int by using isdigit() in if statement, got inspo to create function to check if input is completely type int; https://www.tutorialspoint.com/cplusplus-program-to-check-if-input-is-an-integer-or-a-string
+// isdigit() library, how to use: https://www.cplusplus.com/reference/cctype/isdigit/
+
+
+
+
+
+
+//Database.h
+// Discord: got idea to save pointer in database.h to all initialized Recipe objects to easily access.
+// Canvas Discussions: Database.h stores array of song type. store type class
+// get default constructor of Recipe class so that (dynamic) array can initialize properly: https://stackoverflow.com/questions/8579694/how-do-i-declare-an-array-with-a-custom-class
+// creating array of type class objects: https://www.codesdope.com/cpp-array-of-objects/, https://stackoverflow.com/questions/22279678/storing-class-object-in-an-array, https://levelup.gitconnected.com/learning-c-storing-class-objects-in-containers-ca12546f1a89, assignment 3
+// array of objects, how to initialize inspo (I applied to dynamic array with help of a3): https://www.codesdope.com/cpp-array-of-objects/
+// ^^ https://stackoverflow.com/questions/22279678/storing-class-object-in-an-array
+// ^^ https://levelup.gitconnected.com/learning-c-storing-class-objects-in-containers-ca12546f1a89
+// convert int to string using to_string(): https://stackoverflow.com/questions/5590381/easiest-way-to-convert-int-to-string-in-c
+//file.clear() library/syntax: https://www.cplusplus.com/reference/ios/ios/clear/
+// C++ destructors: https://www.ibm.com/docs/en/i/7.3?topic=only-destructors-c
+// error with namespace, ended up being missing '}': https://stackoverflow.com/questions/63357168/expected-nested-name-specifier-before-namespace
+// research into destructing array of objects: https://stackoverflow.com/questions/12649956/destructing-array-of-objects
+// ^^ https://stackoverflow.com/questions/3428956/deleting-an-object-in-c
+// passing arrays as parameters to functions, got code (int arr[]) for int vec; https://www.tutorialspoint.com/cplusplus/cpp_passing_arrays_to_functions.htm
+/// inspo for counting through an array to get its size, inspo from std::count(bool_array, std::end(bool_array), true) >= 3: https://stackoverflow.com/
+questions/8821921/c-check-all-array-values-at-once
+//inspo for using sizeof() function to get size of array, particulary line of code int arrSize = sizeof(arr)/sizeof(arr[0]);: https://www.educative.io/edpresso/how-to-find-the-length-of-an-array-in-cpp
+//^^ can't properly use sizeof to get size of array in function, idea to abandon idea and just pass it as another parameter in delete_record function: https://stackoverflow.com/questions/25680014/find-the-size-of-integer-array-received-as-an-argument-to-a-function-in-c
+// writing code to file, got line file << my_string; to read string output like cin to file instead out screen ouput: https://stackoverflow.com/questions/15388041/how-to-write-stdstring-to-file
+// ofstream() library syntax how to use to close file, initialize file as ofstream, similar to fstream which is what i used. got code ofs.close() from initializing ofs which is what i used with fstream instead, https://www.cplusplus.com/reference/fstream/ofstream/close/
+//^^ got fstream version of fs.close() line, syntax/library and how to use, code example: https://www.cplusplus.com/reference/fstream/fstream/close/
+// idea to use if statement to check if whitespace using isspace() and iterating through string, used to compare size of array to # of whitespaces to check if input is completely whitespace; https://stackoverflow.com/questions/6444842/efficient-way-to-check-if-stdstring-has-only-spaces
+// check if file line is empty using if (is_empty(file)), tried code didn't work for one line:https://stackoverflow.com/questions/2390912/checking-for-an-empty-file-in-c
+// inspo for checking empty lines, also s.empty() example.: https://stackoverflow.com/questions/9235296/how-to-detect-empty-lines-while-reading-from-istream-object-in-c
+// got ofstream code to open file, delete contents, then close to later be opened and rewritten to as records are saved in database:std::ofstream ofs;
+ofs.open("test.txt", std::ofstream::out | std::ofstream::trunc); ofs.close(); https://www.codegrepper.com/code-examples/cpp/delete+contents+of+a+file+with+contents+C%2B%2B
+// ofstream open code, syntax and code example for how to use. read for output, trunc will discard any previously existing information: https://www.cplusplus.com/reference/fstream/ofstream/open/
+// idea to end code with exit(0); if error occured: https://stackoverflow.com/questions/30250934/how-to-end-c-code
+
+
+
+//Recipe.h:
+// Citations:
+// used base of a3.h header files, how to set up class with private variables, public methods. constructor, destructor
